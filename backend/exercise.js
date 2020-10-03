@@ -1,4 +1,4 @@
-class exercise extends time_slot {
+class Exercise extends Time_Slot {
 
     constructor(day_of_week, slot_num, type, calories_burned, workout) {
         super(day_of_week, slot_num, type);
@@ -9,11 +9,12 @@ class exercise extends time_slot {
     }
 
     // Returns the number of calories burned
-    getCalories(){
+    getCaloriesBurned(){
         return this.calories_burned;
     }
+    
     // Returns the type of workout completed
-    workout(){
+    getWorkout(){
         return this.workout;
     }
 
