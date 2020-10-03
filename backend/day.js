@@ -14,9 +14,33 @@ class Day {
         var h = 0;
         this.time_slots.forEach(s => {
             if (s.type === A)
-                h += 1;
+                h += 0.5;
         return h;
         });
-    }    
+    }
+    
+    // Overwrites time_slots[start...end] with Exercise Time_Slot objects
+    addExercise(start, end, calories_burned, workout) {
+        for (var i = start ; i < end; i++)
+            this.time_slots[i] = new Exercise(this.day_of_week, i, 'E', calories_burned/(end-start+1), workout);
+    }
+
+    // Overwrites time_slots[start...end] with Meal Time_Slot objects
+    addMeal(start, end, calories_gained, food_group) {
+        for (var i = start ; i < end; i++)
+            this.time_slots[i] = new Meal(this.day_of_week, i, 'M', calories_gained/(end-start+1), food_group);
+    }
+
+    // Overwrites time_slots[start...end] with Sleep Time_Slot objects
+    addSleep(start, end, sleep_quality, sleep_type) {
+        for (var i = start ; i < end; i++)
+            this.time_slots[i] = new Sleep(this.day_of_week, i, 'S', sleep_quality, sleep_type);
+    }
+
+    // Overwrites time_slots[start...end] with Null Time_Slot objects
+    clearSlots(start, end) {
+        for (var i = start ; i < end; i++)
+            this.time_slots[i] = new Time_Slot(this.day_of_week, i, null);
+    }
     
 }
