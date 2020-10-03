@@ -1,0 +1,5 @@
+/*Here is where we will retrieve all the information about the user
+and their pre determiend schedule
+we will then make a schedule class
+with all the user inputted working days
+*/
