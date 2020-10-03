@@ -9,11 +9,12 @@ class Exercise extends Time_Slot {
     }
 
     // Returns the number of calories burned
-    getCalories(){
+    getCaloriesBurned(){
         return this.calories_burned;
     }
+    
     // Returns the type of workout completed
-    workout(){
+    getWorkout(){
         return this.workout;
     }
 
