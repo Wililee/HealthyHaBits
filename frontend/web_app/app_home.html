@@ -40,29 +40,41 @@
                 <ul class="nav">
                     <li><a href="#schedule" class="active"><i class="fa fa-calendar"></i> Schedule</a></li>
                     <li><a href="#statistics" class=""><i class="fa fa-coffee"></i> Statistics</a></li>
-                    <li><a href="#projects" class=""><i class="fa fa-briefcase"></i> Projects</a></li>
-                    <li><a href="#contact" class=""><i class="fa fa-address-card"></i> Contact</a></li>
+                    <li><a href="#preferences" class=""><i class="fa fa-briefcase"></i> Preferences</a></li>
                 </ul>
             </div>
         </div>
         <div class="main-content">
 
             <!-- Home Section -->
-            <section class="home section active" id="home">
-                <div class="container">
-                    <div class="landing">
-                        <h1>Healthy HaBits</h1>
-                        <p>Information</p>             
+            <section class="home section active" id="schedule">
+                <div class="row">
+                    <div class="section-title padd-15">
+                        <h2>Schedule <i class="fa fa-coffee"></i></h2>
                     </div>
+                </div>
+                <div class="container">
+
+                <!-- Google Calander API -->
+
+                 <!--Add buttons to initiate auth sequence and sign out-->
+                <button id="authorize_button" >Authorize</button>
+                <button id="signout_button" >Sign Out</button>
+                
+                <iframe src="https://calendar.google.com/calendar/embed?src=c_lh6s4ugatmp8q7eop3n94rhnsk%40group.calendar.google.com&ctz=America%2FToronto" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
                 </div>
             </section>
 
             <!-- About Section -->
-            <section class="about section" id="about">
+            <!DOCTYPE html>
+
+            <section class="about section" id="statistics">
                 <div class="container">
+
                     <div class="row">
                         <div class="section-title padd-15">
-                            <h2>About <i class="fa fa-coffee"></i></h2>
+                            <h2>Words <i class="fa fa-coffee"></i></h2>
                         </div>
                     </div>
                     <div class="row">
@@ -137,7 +149,7 @@
             </section>
 
             <!-- Projects Section -->
-            <section class="projects section"id="projects">
+            <section class="projects section"id="preferences">
                 <div class="container">
                     <div class="row">
                         <div class="section-title padd-15">

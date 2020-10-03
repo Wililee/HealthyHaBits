@@ -1,4 +1,4 @@
-class week {
+class Week {
 
     constructor () {
         this.daysOfWeek = [];
@@ -7,7 +7,7 @@ class week {
         var i;
         for (i = 0; i < 7; i++) {
 
-            this.daysOfWeek.push(new day(this.weekdayNames[i]));
+            this.daysOfWeek.push(new Day(this.weekdayNames[i]));
         }
     }
 
@@ -29,5 +29,5 @@ class week {
     }
 }
 
-var w = new week();
+var w = new Week();
 console.log(w.getWeekSleepTime);

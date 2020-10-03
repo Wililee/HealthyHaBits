@@ -423,19 +423,25 @@ input,textarea,select{
 }
 
 .home .landing h1{
-    font-size: 30px;
+    font-size: 40px;
     color: #302e4d;
     font-family: 'Rubik', sans-serif;
     font-weight: 700;
-    margin: 10px 0 5px;
+    margin: 15px 0 15px;
 }
 
-.home .landing p{
+.home .landing form{
+    display: inline-block;
     font-size: 16px;
     color: #504e70;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
     line-height: 20px;
+}
+
+.inputSec{
+    margin: 15px 0 15px;
+    text-align: left;
 }
 
 .home .landing .link-icon{
