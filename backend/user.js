@@ -1,7 +1,7 @@
-class user { // Calculate data trends and generate insights
+class User { // Calculate data trends and generate insights
     constructor () {
 
-        this.week = new week();
+        this.week = new Week();
         this.targetDailySleep;
         this.targetWeeklyAerobics = 150;
         this.targetWeeklyStrength = 60;
