@@ -6,6 +6,7 @@ class week {
 
         var i;
         for (i = 0; i < 7; i++) {
+
             this.daysOfWeek.push(new day(this.weekdayNames[i]));
         }
     }
@@ -14,10 +15,19 @@ class week {
         return this.daysOfWeek[num % 7];
     }
 
-    getWeekSleepTime() {
-        return 
+    getWeekActivityTime(A) {
+        var i;
+        var sum;
+        for (i = 0; i < 7; i++) {
+            sum += this.daysOfWeek[i].numHoursActivity(A);
+        }
+        return sum;
+    }
+
+    getWeekAvgActivityTime(A) {
+        return this.getWeekActivityTime(A)/7;
     }
 }
 
 var w = new week();
-console.log(w.getWeekDay(142356));
+console.log(w.getWeekSleepTime);
