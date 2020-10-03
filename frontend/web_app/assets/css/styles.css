@@ -22,6 +22,40 @@ body {
 input,textarea,select{
     font-family: 'Montserrat', sans-serif;
 }
+
+.sectionStart {
+    background-color: #f2f2fc;
+    min-height: 100vh;
+    display: block;
+    padding: 0 30px;
+    position: fixed;
+    left: 0px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.sectionStart .prev-section{
+    z-index: 1;
+}
+
+.sectionStart.active{
+    z-index: 2;
+    opacity: 1;
+    -webkit-animation: slideIn 0.5s ease;
+    animation: slideIn 0.5s ease;
+}
+
+.sectionStart .container {
+    padding: 70px 0;
+}
+
 .section {
     background-color: #f2f2fc;
     min-height: 100vh;
