@@ -11,8 +11,11 @@ class week {
     }
 
     getWeekDay(num) {
-        //var weekdayNum = num % 7; // use mod to stop index error
         return this.daysOfWeek[num % 7];
+    }
+
+    getWeekSleepTime() {
+        return 
     }
 }
 
