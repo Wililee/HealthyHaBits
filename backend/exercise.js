@@ -12,10 +12,12 @@ class Exercise extends Time_Slot {
     getCaloriesBurned(){
         return this.calories_burned;
     }
-    
+
     // Returns the type of workout completed
     getWorkout(){
         return this.workout;
     }
-
 }
+
+var tester = new Exercise(1, 1, 'M', 123, "LEG");
+console.log(tester.getCaloriesBurned);
