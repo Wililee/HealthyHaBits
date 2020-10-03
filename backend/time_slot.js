@@ -1,4 +1,4 @@
-class timeslot{
+class time_slot{
 
     constructor (day_of_week, slot_num, type){
         // Integer value representing day of week
