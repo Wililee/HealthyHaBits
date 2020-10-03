@@ -12,6 +12,6 @@ class week {
 
     getWeekDay(num) {
         weekdayNum = num % 7; // use mod to stop index error
-        return daysOfWeek[num];
+        return daysOfWeek[weekdayNum];
     }
 }
