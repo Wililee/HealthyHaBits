@@ -29,6 +29,10 @@ class Week {
     getWeekAvgActivityTime(A) {
         return this.getWeekActivityTime(A)/7;
     }
+
+    getDayBase(num) { // base is defined as the moment you wake up
+        return this.daysOfWeek[num].base();
+    } 
 }
 
 var w = new Week();
