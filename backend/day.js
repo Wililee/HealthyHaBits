@@ -1,11 +1,11 @@
 class day {
     constructor (day_of_week){
-        this.day_of_week = day_of_week;
+        this.day_of_week = day_of_week; //just the name of the week
         //creates time slot objs
-        time_slot time_slots;
+        this.time_slots = [];
         //type,starttime(1-48)
         for (var i = 0; i < 48; i ++)
-            time_slots.append(new time_slot(null, i));
+            this.time_slots.push(new time_slot(this.day_of_week, i, null));
     }
 
     numHoursExercise(){

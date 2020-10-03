@@ -15,3 +15,6 @@ class week {
         return daysOfWeek[weekdayNum];
     }
 }
+
+w = new week();
+console.log('hello');
