@@ -61,18 +61,18 @@ function addPrev(n){
     allSection[n].classList.add("prev-section");
 }
 
-document.querySelector(".email-btn").addEventListener("click",function(){
-    const sectionIndex = this.getAttribute("data-section-index");
-    showSection(this);
-    updateNav(this);
-    removePrev();
-    addPrev(sectionIndex)
-})
+// document.querySelector(".email-btn").addEventListener("click",function(){
+//     const sectionIndex = this.getAttribute("data-section-index");
+//     showSection(this);
+//     updateNav(this);
+//     removePrev();
+//     addPrev(sectionIndex)
+// })
 
-document.querySelector(".contact-me").addEventListener("click",function(){
-    showSection(this);
-    updateNav(this)
-})
+// document.querySelector(".contact-me").addEventListener("click",function(){
+//     showSection(this);
+//     updateNav(this)
+// })
 
 const navToggleBtn = document.querySelector(".nav-toggle"),
       aside = document.querySelector(".aside");

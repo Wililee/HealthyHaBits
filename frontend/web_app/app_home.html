@@ -39,34 +39,171 @@
                 <!-- Nav -->
                 <ul class="nav">
                     <li><a href="#schedule" class="active"><i class="fa fa-calendar"></i> Schedule</a></li>
-                    <li><a href="#statistics" class=""><i class="fa fa-coffee"></i> Statistics</a></li>
-                    <li><a href="#preferences" class=""><i class="fa fa-briefcase"></i> Preferences</a></li>
+                    <li><a href="#statistics" class=""><i class="fa fa-signal"></i> Statistics</a></li>
+                    <li><a href="#preferences" class=""><i class="fa fa-user"></i> Preferences</a></li>
                 </ul>
             </div>
         </div>
         <div class="main-content">
 
-            <!-- Home Section -->
+            <!-- Schedule Section -->
             <section class="home section active" id="schedule">
-                <div class="row">
-                    <div class="section-title padd-15">
-                        <h2>Schedule <i class="fa fa-coffee"></i></h2>
-                    </div>
-                </div>
                 <div class="container">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2>Schedule <i class="fa fa-calendar"></i></h2>
+                        </div>
+                    </div>
 
                 <!-- Google Calander API -->
 
-                 <!--Add buttons to initiate auth sequence and sign out-->
-                <button id="authorize_button" >Authorize</button>
+                <html>
+                <head>
+                    <title>Google Calendar API Quickstart</title>
+                    <meta charset="utf-8" />
+                </head>
+                <body>
+                    <p>Google Calendar API Quickstart</p>
+                <button id="authorize_button">Authorize</button>
                 <button id="signout_button" >Sign Out</button>
-                
-                <iframe src="https://calendar.google.com/calendar/embed?src=c_lh6s4ugatmp8q7eop3n94rhnsk%40group.calendar.google.com&ctz=America%2FToronto" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+                <pre id="content" style="white-space: pre-wrap;"></pre>
+
+                <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+                <script type="text/javascript">
+                // Client ID and API key from the Developer Console
+                var CLIENT_ID = '1079416677730-fi6bkri729d1s6iv9ka6r8cap770jnka.apps.googleusercontent.com';
+                var API_KEY = 'AIzaSyBiJGyS83sa8ONJei9JlJWvsjy21oWByqY';
+
+                // Array of API discovery doc URLs for APIs used by the quickstart
+                var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+
+                // Authorization scopes required by the API; multiple scopes can be
+                // included, separated by spaces.
+                var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+
+                var authorizeButton = document.getElementById('authorize_button');
+                var signoutButton = document.getElementById('signout_button');
+
+                /**
+                 *  On load, called to load the auth2 library and API client library.
+                 */
+                function handleClientLoad() {
+                    gapi.load('client:auth2', initClient);
+                }
+
+                /**
+                 *  Initializes the API client library and sets up sign-in state
+                 *  listeners.
+                 */
+                function initClient() {
+                    gapi.client.init({
+                    apiKey: API_KEY,
+                    clientId: CLIENT_ID,
+                    discoveryDocs: DISCOVERY_DOCS,
+                    scope: SCOPES
+                    }).then(function () {
+                    // Listen for sign-in state changes.
+                    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+                    // Handle the initial sign-in state.
+                    updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+                    authorizeButton.onclick = handleAuthClick;
+                    signoutButton.onclick = handleSignoutClick;
+                    }, function(error) {
+                    appendPre(JSON.stringify(error, null, 2));
+                    });
+                }
+
+                /**
+                 *  Called when the signed in status changes, to update the UI
+                 *  appropriately. After a sign-in, the API is called.
+                 */
+                function updateSigninStatus(isSignedIn) {
+                    if (isSignedIn) {
+                    authorizeButton.style.display = 'none';
+                    signoutButton.style.display = 'block';
+                    listUpcomingEvents();
+                    } else {
+                    authorizeButton.style.display = 'block';
+                    signoutButton.style.display = 'none';
+                    }
+                }
+
+                /**
+                 *  Sign in the user upon button click.
+                 */
+                function handleAuthClick(event) {
+                    console.log("handleAuthCalled");
+                    gapi.auth2.getAuthInstance().signIn();
+                }
+
+                /**
+                 *  Sign out the user upon button click.
+                 */
+                function handleSignoutClick(event) {
+                    gapi.auth2.getAuthInstance().signOut();
+                }
+
+                /**
+                 * Append a pre element to the body containing the given message
+                 * as its text node. Used to display the results of the API call.
+                 *
+                 * @param {string} message Text to be placed in pre element.
+                 */
+                function appendPre(message) {
+                    var pre = document.getElementById('content');
+                    var textContent = document.createTextNode(message + '\n');
+                    pre.appendChild(textContent);
+                }
+
+                /**
+                 * Print the summary and start datetime/date of the next ten events in
+                 * the authorized user's calendar. If no events are found an
+                 * appropriate message is printed.
+                 */
+                function listUpcomingEvents() {
+                    gapi.client.calendar.events.list({
+                    'calendarId': 'primary',
+                    'timeMin': (new Date()).toISOString(),
+                    'showDeleted': false,
+                    'singleEvents': true,
+                    'maxResults': 10,
+                    'orderBy': 'startTime'
+                    }).then(function(response) {
+                    var events = response.result.items;
+                    appendPre('Upcoming events:');
+
+                    if (events.length > 0) {
+                        for (i = 0; i < events.length; i++) {
+                        var event = events[i];
+                        var when = event.start.dateTime;
+                        if (!when) {
+                            when = event.start.date;
+                        }
+                        appendPre(event.summary + ' (' + when + ')')
+                        }
+                    } else {
+                        appendPre('No upcoming events found.');
+                    }
+                    });
+                }
+
+                </script>
+
+                <script async defer src="https://apis.google.com/js/api.js"
+                onload="this.onload=function(){};handleClientLoad()"
+                onreadystatechange="if (this.readyState === 'complete') this.onload()">
+                </script>
+            </body>
+            </html>
+                    <iframe src="https://calendar.google.com/calendar/embed?src=c_lh6s4ugatmp8q7eop3n94rhnsk%40group.calendar.google.com&ctz=America%2FToronto" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
                 </div>
             </section>
 
-            <!-- About Section -->
+            <!-- Statistics Section -->
             <!DOCTYPE html>
 
             <section class="about section" id="statistics">
@@ -74,67 +211,34 @@
 
                     <div class="row">
                         <div class="section-title padd-15">
-                            <h2>Words <i class="fa fa-coffee"></i></h2>
+                            <h2>Statistics <i class="fa fa-signal"></i></h2>
                         </div>
                     </div>
                     <div class="row">
                         <div class="about-content padd-15">
                             <div class="row">
-                                <div class="about-text padd-15">
-                                    <h3>Hello</h3>
-                                    <p>
-                                        Information
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="personal-info padd-15">
-                                    <div class="row">
-                                        <div class="info-item padd-15">
-                                            <p>Education : <span>Software Engineering, McMaster University</span></p>
-                                        </div>
-                                        <div class="info-item padd-15">
-                                            <p>Email : <span>wangw115&commat;mcmaster.ca</span></p>
-                                        </div>
-                                        <div class="info-item padd-15">
-                                            <p>Phone : <span>(647) 628-2588</span></p>
-                                        </div>
-                                        <div class="info-item padd-15">
-                                            <p>Location : <span>Hamilton/Toronto, ON</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="buttons padd-15">
-                                                <button type="button" class="btn">Download Resume</button>     
-                                            </a>
-                                            <a href="#contact" data-section-index="1" class="contact-me">
-                                                <button type="button" class="btn">Contact Me</button>
-                                            </a>
-                                        </div>  
-                                    </div>
-                                </div>
                                 <div class="personal-skills padd-15">
                                     <div class="row">
                                         <div class="skill-item padd-15">
-                                            <h5>Python</h5>
+                                            <h5>Health</h5>
                                             <div class="progress">
                                                 <div class="progress-bar" style="width: 85%;">85%</div>
                                             </div>
                                         </div>
                                         <div class="skill-item padd-15">
-                                            <h5>Java</h5>
+                                            <h5>Nutrition</h5>
                                             <div class="progress">
                                                 <div class="progress-bar" style="width: 90%;">90%</div>
                                             </div>
                                         </div>
                                         <div class="skill-item padd-15">
-                                            <h5>C Programming</h5>
+                                            <h5>Exercise</h5>
                                             <div class="progress">
                                                 <div class="progress-bar" style="width: 60%;">60%</div>
                                             </div>
                                         </div>
                                         <div class="skill-item padd-15">
-                                            <h5>HTML &amp; CSS</h5>
+                                            <h5>Sleep</h5>
                                             <div class="progress">
                                                 <div class="progress-bar" style="width: 70%;">70%</div>
                                             </div>
@@ -148,106 +252,13 @@
                 </div>
             </section>
 
-            <!-- Projects Section -->
-            <section class="projects section"id="preferences">
+            <!-- Preferences Section -->
+            <section class="preferences section"id="preferences">
                 <div class="container">
                     <div class="row">
                         <div class="section-title padd-15">
-                            <h2>Projects <i class="fa fa-briefcase"></i></h2>
+                            <h2>Preferences <i class="fa fa-user"></i></h2>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="projects-prompt padd-15">
-                            <p>Check out some of my recent work. <span>Hover</span> over each project for details.</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="projects-item padd-15">
-                            <div class="projects-item-inner dark-shadow">
-                                <div class="projects-img">
-                                    <img src="assets/img/proj_0.jpg" alt="TrashCode">
-                                </div>
-                                <div class="projects-info">
-                                    <h4>TrashCode</h4>
-                                    <p>Prototype trash bin that streamlines the process of everyday
-                                        waste disposal by using machine learning to detect, classify
-                                        and sort trash.
-                                        <br>
-                                        <br>
-                                        Developed with: React.js, TensorFlow, Node.js, Arduino, MongoDB
-                                    </p>
-                                    <a href="https://github.com/cathkyu/deltahacks2020" target="_blank">
-                                        <div class="icon">
-                                            <i class="fa fa-search"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="projects-item padd-15">
-                            <div class="projects-item-inner dark-shadow">
-                                <div class="projects-img">
-                                    <img src="assets/img/proj_1.jpg" alt="UniversitEats">
-                                </div>
-                                <div class="projects-info">
-                                    <h4>UniversitEats</h4>
-                                    <p> Application that helps university students find quick eats by 
-                                        using Yelp's Open Dataset of businesses to determine the closest,
-                                        cheapest, or highest quality restaurant in one's given area.
-                                        <br>
-                                        <br>
-                                        Developed with: Java, Android Studio
-                                    </p>
-                                        <div class="icon">
-                                            <i class="fa fa-search"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="projects-item padd-15">
-                            <div class="projects-item-inner dark-shadow">
-                                <div class="projects-img">
-                                    <img src="assets/img/proj_2.jpg" alt="National Food Tour">
-                                </div>
-                                <div class="projects-info">
-                                    <h4>National Food Tour</h4>
-                                    <p>Program that when given a set of cities and its existing restaurants,
-                                        finds the cheapest path between two cities with respect to the city's
-                                        restaurants via sorting and graphing algorithms.
-                                        <br>
-                                        <br>
-                                        Written in: Java
-                                    </p>
-                                        <div class="icon">
-                                            <i class="fa fa-search"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="projects-item padd-15">
-                            <div class="projects-item-inner dark-shadow">
-                                <div class="projects-img">
-                                    <img src="assets/img/proj_3.jpg" alt="Algorithms Library">
-                                </div>
-                                <div class="projects-info">
-                                    <h4>Algorithms/Data-Structure Library</h4>
-                                    <p>Work-in-progress library of useful algorithms and data-structures created with the intent
-                                        to improve programming skills and better understand the advantages/drawbacks
-                                        of various algorithms/data-structures.
-                                        <br>
-                                        <br>
-                                        Written in: Java
-                                    </p>
-                                        <div class="icon">
-                                            <i class="fa fa-search"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
 
