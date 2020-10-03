@@ -1,4 +1,4 @@
-class exercise extends time_slot {
+class Exercise extends Time_Slot {
 
     constructor(day_of_week, slot_num, type, calories_burned, workout) {
         super(day_of_week, slot_num, type);
