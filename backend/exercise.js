@@ -18,6 +18,3 @@ class Exercise extends Time_Slot {
         return this.workout;
     }
 }
-
-var tester = new Exercise(1, 1, 'M', 123, "LEG");
-console.log(tester.getCaloriesBurned);

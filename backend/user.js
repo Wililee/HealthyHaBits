@@ -10,8 +10,8 @@ class user { // Calculate data trends and generate insights
             this.targetAverageDailyCalories = 120;
         } else if (gender === "female") {
             this.targetAverageDailyCalories = 90; // measured in micrograms
-        }        
-    }
+        }  
+    }      
 
     newWeek() {
         this.week = new Week();
