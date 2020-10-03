@@ -13,6 +13,10 @@ class Schedule{
             //updates all the timeslots in the given week
             w.daysOfWeek[dow].time_slots[sn] = slot;
         });
+
+        //auto adds the exercise,eating and sleepign slots
+        //what to do if there is no base?
+        var base =0;
     }
 
 }

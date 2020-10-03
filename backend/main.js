@@ -22,8 +22,8 @@ $("#txtbox").text('reee') sets txtbox's text to reee
 //way to change schedule
 //way to
 
-$('#Submit').on("click", () => {
-
+$("#btn1").on("click", () => {
+    $("#pg1").text("new content");
 })
 
 
@@ -45,4 +45,3 @@ function displayStats(){
 
 }
 
-function 

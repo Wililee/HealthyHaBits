@@ -26,9 +26,9 @@ class Day {
     }
 
     // Overwrites time_slots[start...end] with Meal Time_Slot objects
-    addMeal(start, end, calories_gained, food_group) {
+    addMeal(start, end, food_group) {
         for (var i = start ; i < end; i++)
-            this.time_slots[i] = new Meal(this.day_of_week, i, 'M', calories_gained/(end-start+1), food_group);
+            this.time_slots[i] = new Meal(this.day_of_week, i, 'M', food_group);
     }
 
     // Overwrites time_slots[start...end] with Sleep Time_Slot objects
