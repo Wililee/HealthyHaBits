@@ -8,13 +8,15 @@ class day {
             this.time_slots.push(new time_slot(this.day_of_week, i, null));
     }
 
-    numHoursExercise(){
+    //A represents the activity such as:
+    //E: exercise, W: working, M: Meal, S: Sleep
+    numHoursActivity(A){
         var h = 0;
         this.time_slots.forEach(s => {
-            if (s.type === "E")
+            if (s.type === A)
                 h += 1;
         return h;
         });
-    }
+    }    
     
 }
