@@ -1,4 +1,4 @@
-class Eating extends Time_Slot {
+class Meal extends Time_Slot {
 
     constructor(day_of_week, slot_num, type, sleep_quality, sleep_type) {
         super(day_of_week, slot_num, type);
@@ -13,7 +13,7 @@ class Eating extends Time_Slot {
     getCaloriesGained(){
         return this.calories_gained;
     }
-    
+
     // Returns the food group of the meal
     getFoodGroup(){
         return this.food_group;
