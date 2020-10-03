@@ -16,7 +16,29 @@ class Schedule{
 
         //auto adds the exercise,eating and sleepign slots
         //what to do if there is no base?
-        var base =0;
+        w.daysOfWeek.forEach(d =>{
+            var base;
+            var flag = false;
+
+            //first trys to find a base
+            d.time_slots.forEach(s =>{
+                if (s.slot_num === 0){
+                    flag = true;
+                }
+                
+                //this would be the first blank after so just set flag to true
+                if (s.type === null){
+                    //determine if there is more than 8h ahead
+                    var temp = false;
+                    
+                }
+                if (s.type === 'W' && flag === false){
+
+                }
+            })
+        })
+        
+        
     }
 
 }

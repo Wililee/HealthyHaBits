@@ -1,9 +1,11 @@
 class Day {
     constructor (day_of_week){
+        //int from 0 - 47
+        this.base = null;
         this.day_of_week = day_of_week; //just the name of the week
         //creates time slot objs
         this.time_slots = [];
-        //type,starttime(1-48)
+        //type,starttime(0-47)
         for (var i = 0; i < 48; i ++)
             this.time_slots.push(new Time_Slot(this.day_of_week, i, null));
     }
@@ -18,6 +20,8 @@ class Day {
         return h;
         });
     }
+
+    
     
     // Overwrites time_slots[start...end] with Exercise Time_Slot objects
     addExercise(start, end, calories_burned, workout) {
