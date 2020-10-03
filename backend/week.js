@@ -20,7 +20,7 @@ class Week {
         var sum = 0;
         for (i = 0; i < 7; i++) {
             var instance = this.daysOfWeek[i];
-            sum = sum + instance.numHoursActivity(A);
+            sum = sum + instance.numHoursActivity(A); // currently having a NaN error
         }
         
         return sum;
