@@ -12,11 +12,11 @@
         <!-- Main Body -->
         <div class="main-content">
             <!-- Home Section -->
-            <section class="home section active" id="home">
+            <section class="home sectionStart active" id="home">
                 <div class="container">
                     <div class="landing">
                         <h1>Healthy HaBits</h1>
-                        <h4>Please enter your information and we'll make you a schedule to keep you healthy and happy!</h4>
+                        <h4>Please enter your information and we'll make a schedule to keep you healthy and happy!</h4>
                         <form>
                             <div class="inputSec">
                                 <label>Name</label><br>
@@ -36,17 +36,42 @@
                             </div>
                             <div class="inputSec">
                                 <label>Height in meters</label><br>
-                                <input type="text" placeholder="Height">
+                                <input type="number" placeholder="Height">
                             </div>
                             <div class="inputSec">
                                 <label>Weight in kilograms</label><br>
-                                <input type="text" placeholder="Weight">
+                                <input type="number" placeholder="Weight">
                             </div>
-                            <button type="submit" class="btn">Submit</button>
-                        </form>      
+                            <button type="submit" class="btn" value="Submit">Submit</button>
+                        </form>
                     </div>
                 </div>
             </section>
-        </div>    
+
+            <!-- Details Section -->
+            <section class="home sectionStart active" id="details">
+                <div class="container">
+                    <div class="landing">
+                        <h1>Healthy HaBits</h1>
+                        <h4>You can input more information to get a more personalized schedule!</h4>
+                        <form method="post" action="app_home.html">
+                            <div class="inputSec">
+                                <label>Work Days</label>
+                                <p>
+                                    Monday: <input type="checkbox" name="days" value="monday"  /><br />
+                                    Tuesday: <input type="checkbox" name="days" value="tuesday"  /><br />
+                                    Wednesday: <input type="checkbox" name="days" value="wednesday"  /><br />
+                                    Thursday: <input type="checkbox" name="days" value="thursday"  /><br />
+                                    Friday: <input type="checkbox" name="days" value="friday"  /><br />
+                                    Saturday: <input type="checkbox" name="days" value="saturday"  /><br />
+                                    Sunday: <input type="checkbox" name="days" value="sunday"  /><br />
+                                </p>
+                            </div>
+                            <button type="submit" class="btn" value="Submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
     </body>
 </html>

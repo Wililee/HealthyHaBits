@@ -17,17 +17,23 @@ class Week {
 
     getWeekActivityTime(A) {
         var i;
-        var sum;
+        var sum = 0;
         for (i = 0; i < 7; i++) {
-            sum += this.daysOfWeek[i].numHoursActivity(A);
+            var instance = this.daysOfWeek[i];
+            sum = sum + instance.numHoursActivity(A); // currently having a NaN error
         }
+        
         return sum;
     }
 
     getWeekAvgActivityTime(A) {
         return this.getWeekActivityTime(A)/7;
     }
+
+    getDayBase(num) { // base is defined as the moment you wake up
+        return this.daysOfWeek[num].base();
+    } 
 }
 
 var w = new Week();
-console.log(w.getWeekSleepTime);
+console.log(w.getWeekActivityTime('S'));
