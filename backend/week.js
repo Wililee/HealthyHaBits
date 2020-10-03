@@ -17,11 +17,12 @@ class Week {
 
     getWeekActivityTime(A) {
         var i;
-        var sum;
+        var sum = 0;
         for (i = 0; i < 7; i++) {
             var instance = this.daysOfWeek[i];
-            sum += instance.numHoursActivity(A);
+            sum = sum + instance.numHoursActivity(A);
         }
+        
         return sum;
     }
 
@@ -31,4 +32,4 @@ class Week {
 }
 
 var w = new Week();
-console.log(w.getWeekSleepTime);
+console.log(w.getWeekActivityTime('S'));
