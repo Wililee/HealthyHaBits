@@ -19,7 +19,8 @@ class Week {
         var i;
         var sum;
         for (i = 0; i < 7; i++) {
-            sum += this.daysOfWeek[i].numHoursActivity(A);
+            var instance = this.daysOfWeek[i];
+            sum += instance.numHoursActivity(A);
         }
         return sum;
     }
