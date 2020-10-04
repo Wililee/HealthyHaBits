@@ -452,12 +452,7 @@ input,textarea,select{
 }
 
 .home .landing img{
-    min-width: 200px;
-    width: 20%;
-    height: auto;
-    border-radius: 50%;
     display: inline-block;
-    border: #3ec0f3 solid 8px;
 }
 
 .home .landing h1{

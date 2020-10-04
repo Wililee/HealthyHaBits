@@ -21,6 +21,15 @@ class Day {
         return h;
     }
 
+    numNutrients(category){
+        var sum = 0;
+        this.time_slots.forEach(s=> {
+            if (s.type === 'M')
+                sum = sum + s.getNutriotionalInfo(category);
+        });
+        return sum;
+    }
+
     
     
     // Overwrites time_slots[start...end] with Exercise Time_Slot objects

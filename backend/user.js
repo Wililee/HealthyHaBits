@@ -50,8 +50,8 @@ class user { // Calculate data trends and generate insights
         return percentage;
     }
 
-    getNutritionalPercentage(N) {
-        var averageFibre = this.week.getWeeklyNutrient(N)/7;
+    getNutritionalPercentage(category) { // Calcultaes if you have enough fibre/protein/carbs. etc. planned
+        var averageFibre = this.week.getWeeklyNutrient(category)/7;
         var percentage = averageFibre/this.targetAverageDailyFibre;
         return percentage;
     }
