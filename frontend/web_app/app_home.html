@@ -58,13 +58,6 @@
                 <!-- Google Calander API -->
 
                 <html>
-                <head>
-                    <title>Google Calendar API Quickstart</title>
-                    <meta charset="utf-8" />
-                </head>
-                
-                <body>
-                    <p>Google Calendar API Quickstart</p>
                 <button id="authorize_button">Authorize</button>
                 <button id="signout_button" >Sign Out</button>
 
@@ -197,7 +190,6 @@
                 onload="this.onload=function(){};handleClientLoad()"
                 onreadystatechange="if (this.readyState === 'complete') this.onload()">
                 </script>
-            </body>
             </html>
             <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%237dd6ff&amp;ctz=America%2FToronto&amp;src=Y19saDZzNHVnYXRtcDhxN2VvcDNuOTRyaG5za0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%234285F4&amp;mode=AGENDA" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
                 </div>
@@ -212,36 +204,49 @@
                             <h2>Statistics <i class="fa fa-signal"></i></h2>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="about-content padd-15">
-                            <div class="row">
-                                <div class="personal-skills padd-15">
-                                    <div class="row">
-                                        <div class="skill-item padd-15">
-                                            <h5>Health</h5>
-                                            <div class="progress">
-                                                <div class="progress-bar" style="width: 85%;">85%</div>
-                                            </div>
+                    <div class="about-content padd-15">
+                        <div class="row">
+                            <div class="personal-skills padd-15">
+                                <div class="column">
+                                    <div class="skill-item padd-15">
+                                        <h5>Health</h5>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 85%;">85%</div>
                                         </div>
-                                        <div class="skill-item padd-15">
-                                            <h5>Nutrition</h5>
-                                            <div class="progress">
-                                                <div class="progress-bar" style="width: 90%;">90%</div>
-                                            </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>Nutrition</h5>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 90%;">90%</div>
                                         </div>
-                                        <div class="skill-item padd-15">
-                                            <h5>Exercise</h5>
-                                            <div class="progress">
-                                                <div class="progress-bar" style="width: 60%;">60%</div>
-                                            </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>Exercise</h5>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 60%;">60%</div>
                                         </div>
-                                        <div class="skill-item padd-15">
-                                            <h5>Sleep</h5>
-                                            <div class="progress">
-                                                <div class="progress-bar" style="width: 70%;">70%</div>
-                                            </div>
+                                    </div>
+                                    <div class="skill-item padd-15">
+                                        <h5>Sleep</h5>
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 70%;">70%</div>
                                         </div>
-                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personal-info padd-15">
+                                <div class="row">
+                                    <div class="info-item padd-15">
+                                        <p>Average Sleep Per Night: <span>TODO: Display value here</span></p>
+                                    </div>
+                                    <div class="info-item padd-15">
+                                        <p>Average Sleep Consistantcy: <span>TODO: Display value here</span></p>
+                                    </div>
+                                    <div class="info-item padd-15">
+                                        <p>You have improved your: <span>TODO: sleep, nutrition etc</span></p>
+                                    </div>
+                                    <div class="info-item padd-15">
+                                        <p>You have room to improve: <span>TODO: sleep, nutrition etc</span></p>
                                     </div>
                                 </div>
                             </div>
