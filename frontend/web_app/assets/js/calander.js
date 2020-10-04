@@ -21,7 +21,6 @@ var EventName;
 var setflag = false;
 var setTime;
 var setType;
-var setName;
 
 function SetEventType(s,t){
     setflag = true;
@@ -100,11 +99,10 @@ function addEventToCalander(EventName, startTime, EndTime) {
     summary: EventName,
     start: {
       dateTime: startTime,
-      timeZone: "America/Los_Angeles",
     },
     end: {
       dateTime: EndTime,
-      timeZone: "America/Los_Angeles",
+      
     },
   };
 
@@ -131,7 +129,7 @@ function changeEventType(st,nt){
 
       if (events.length > 0) {
         for (i = 0; i < events.length; i++) {
-          if (events[i].st === st)
+          if (events[i].startTime === st)
             events[i].summary = nt;
         }
       } 
