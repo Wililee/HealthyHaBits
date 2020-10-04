@@ -11,7 +11,12 @@ class user { // Calculate data trends and generate insights
         this.targetWeekExerciseHours = 3.5;
         this.targetWeekEatingHours = 1.5;
 
-        this.targetAverageDailyFibre = 25; // measured in grams
+        // Target daily values of nutrients
+        this.targetAverageDailyCalories = 2000;
+        this.targetAverageDailyFibre = 25; // grams
+        this.targetAverageDailyProtein = 0.8*weight; //assuming weight is in kg
+        this.targetAverageDailyCarbs = 900; // arbitrary
+        this.targetAverageDailyVitamins = 40; // arbitrary
 
         // below values not yet used in any data calculations
         this.targetAverageDailyWater = 1; // daily water measured in gallons
@@ -51,12 +56,23 @@ class user { // Calculate data trends and generate insights
     }
 
     getNutritionalPercentage(category) { // Calcultaes if you have enough fibre/protein/carbs. etc. planned
-        var averageFibre = this.week.getWeeklyNutrient(category)/7;
-        var percentage = averageFibre/this.targetAverageDailyFibre;
+        var averageNutrient = this.week.getWeeklyNutrient(category)/7;
+        var percentage = averageFibre/this.getNutrient(category);
         return percentage;
     }
 
-    getNutritionalInsight() {
-        return ("Text")
+    getNutrient(category) { 
+        var categories = ["calories", "protein", 'fibre', 'carbohydrates', 'vitamins'];
+        if (category === "calories") { // I know this is kind of lazy programming sorry
+            return this.targetAverageDailyCalories;
+        } else if (category === 'fibre') {
+            return this.targetAverageDailyFibre;
+        } else if (category === "protein") {
+            return this.targetAverageDailyProtein;
+        } else if (category === 'carbohydrates') {
+            return this.targetAverageDailyCarbs;
+        } else if (category === 'vitamins') {
+            return this.targetAverageDailyVitamins;
+        }
     }
 }

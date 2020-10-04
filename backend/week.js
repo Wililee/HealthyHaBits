@@ -34,7 +34,7 @@ class Week {
         var sum = 0;
         for (i = 0; i < 7; i++) {
             var instance = this.daysOfWeek[i];
-            sum = sum + instance.numNutrients(category); // replace this function with one that gets the nutritional info
+            sum = sum + instance.numNutrients(category);
         }
         return sum;
     }
