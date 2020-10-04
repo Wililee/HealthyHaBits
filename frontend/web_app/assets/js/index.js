@@ -57,3 +57,44 @@ $('#SubmitBtn2').on('click', () => {
     sunT1 = $('#sunStarti').val();
     sunT2 = $('#sunEndi').val();
 })
+
+var UserNameN;
+var AgeN;
+var GenderN;
+var HeightN;
+var WeightN;
+var monT1N;
+var monT2N;
+var tuesT1N;
+var tuesT2N;
+var wedT1N;
+var wedT2N;
+var thursT1N;
+var thursT2N;
+var friT1N;
+var friT2N;
+var satT1N;
+var satT2N;
+var sunT1N;
+var sunT2N;
+$('#SubmitBtn3').on('click', () => {
+    UserNameN = $('#nameTxt').val();
+    AgeN = $('#age').val();
+    GenderN = $('#gender').val();
+    HeightN = $('#height').val();
+    WeightN = $('#weight').val();
+    monT1N = $('#monStart').val();
+    monT2N = $('#monEnd').val();
+    tuesT1N = $('#tuesStart').val();
+    tuesT2N = $('#tuesEnd').val();
+    wedT1N = $('#wedStart').val();
+    wedT2N = $('#wedEnd').val();
+    thursT1N = $('#thursStart').val();
+    thursT2N = $('#thursEnd').val();
+    friT1N = $('#friStart').val();
+    friT2N = $('#friEnd').val();
+    satT1N = $('#satStart').val();
+    satT2N = $('#satEnd').val();
+    sunT1N = $('#sunStart').val();
+    sunT2N = $('#sunEnd').val();
+})
