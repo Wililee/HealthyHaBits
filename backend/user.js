@@ -1,6 +1,11 @@
 class user { // Calculate data trends and generate insights
-// Can be an assesment of how good the generated schedule is to use
-// Still a work-in progress
+
+/* Statistics we've calculated:
+    - Percentage of needed weekly time sleeping/eating/exercising
+    - Average wake up time variation (sleep consistency)
+    - Average sleep per night comparison
+    - Percentage of needed nutrition per week
+*/
 
     constructor (name, age, gender, height, weight) {
         this.week = new Week();
@@ -26,6 +31,13 @@ class user { // Calculate data trends and generate insights
         this.week = new Week();
     }
 
+    // Percentage of needed weekly time sleeping/eating/exercising
+    getActivityPercentage(A) {
+        var percentage = 100*Math.round(this.getWeekAvgActivityTime(A)/this.targetWeekSleepHours);
+        return percentage;
+    }
+
+    // Average wake up time variation (sleep consistency)
     getSleepConsistencyInsight() {
         var averageHourVariation;
         var sum;
@@ -40,6 +52,7 @@ class user { // Calculate data trends and generate insights
         return ("Your sleep start times vary by an average of " + averageHourVariation + " hours each night.");
     }
 
+    // Average sleep per night comparison
     getAverageSleepInsight() {
         var delta = this.targetAverageDailySleep - this.week.getWeekAvgActivityTime('S'); // find the difference between avg. hours slept each night and the target
         if (delta > 0) { // if statements to determine how to communicate to user how they match up to to expected.
@@ -50,13 +63,10 @@ class user { // Calculate data trends and generate insights
         return ("You slept the perfect amount this week!")
     }
 
-    getActivityPercentage(A) { // Calculates if the scheduler has scheduled all of the necessary activities
-        var percentage = 100*Math.round(this.getWeekAvgActivityTime(A)/this.targetWeekSleepHours);
-        return percentage;
-    }
 
-    getNutritionalPercentage(category) { // Calcultaes if you have enough fibre/protein/carbs. etc. planned
-        var averageNutrient = this.week.getWeeklyNutrient(category)/7;
+    // Percentage of needed nutrition per week
+    getNutritionalPercentage(category) { 
+        var averageNutrient = this.week.getWeeklyNutrient(category)/7; // Calcultaes if you have enough fibre/protein/carbs. etc. planned
         var percentage = averageFibre/this.getNutrient(category);
         return percentage;
     }
