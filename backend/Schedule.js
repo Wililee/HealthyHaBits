@@ -64,11 +64,57 @@ class Schedule{
             
         }
 
-        //sets up eating times
-        //first one is done automatically to prevent oob error
-        
-        for (var i = 1; i < 7; i ++){
+        //exersize right after work
+        this.w.daysOfWeek.forEach(d => {
+            var f = false;
+            var b = false;
+            var br = false;
+            d.time_slots.forEach(s => {
+                if (s.type === 'W')
+                    f = true;
+                else if (s.type === null && f === true && b === false)
+                    b = true;
+                else if (s.type === null && f === true && b === true && br === false){
+                    s.type = 'E';
+                    br = true;
+                }
+                          
+            })
+        })
 
+        console.log(this.w.daysOfWeek[0].base + " base of 1st");
+
+        //sets up eating times
+        for (var i = 0; i < 6; i ++){
+        //first one is done automatically to prevent oob error
+        this.w.daysOfWeek[i].time_slots[this.w.daysOfWeek[i].base].type = 'M';
+        //2nd during work break (already added)
+
+        //3rd directly after workout
+        for (var j = 0; j < 48; j ++){
+            if (this.w.daysOfWeek[i].time_slots[j].type === 'E')
+                if (this.w.daysOfWeek[i].time_slots[j].slot_num < 47){ //not the last
+                    this.w.daysOfWeek[i].time_slots[j+1].type = 'M';
+                }
+
+                //last element bleeds into next day
+                else {
+                    this.w.daysOfWeek[i+1].time_slots[0].type = 'M';
+                }
+        }
+        
+        }
+
+        //do the last one seperatly to prevent ioob error
+        this.w.daysOfWeek[6].time_slots[this.w.daysOfWeek[6].base].type = 'M';
+        //2nd during work break (already added)
+
+        //3rd directly after workout
+        for (var j = 0; j < 48; j ++){
+            if (this.w.daysOfWeek[6].time_slots[j].type === 'E')
+                if (this.w.daysOfWeek[6].time_slots[j].slot_num < 47){ //not the last
+                    this.w.daysOfWeek[6].time_slots[j+1].type = 'M';
+                }
         }
 
     }
@@ -87,11 +133,14 @@ ts.push(new Time_Slot(2,26,'W'));
 ts.push(new Time_Slot(2,27,'W'));
 ts.push(new Time_Slot(2,28,'W'));
 ts.push(new Time_Slot(2,29,'W'));
-
+ts.push(new Time_Slot(0,21,'W'));
+ts.push(new Time_Slot(1,21,'W'));
 ts.push(new Time_Slot(3,21,'W'));
 ts.push(new Time_Slot(4,21,'W'));
+ts.push(new Time_Slot(5,21,'W'));
+ts.push(new Time_Slot(6,21,'W'));
 
 var s = new Schedule(ts);
 for (var i = 0; i < 48; i ++){
-    console.log(i + " " + s.w.daysOfWeek[2].time_slots[i].type);
+    console.log(i + " " + s.w.daysOfWeek[6].time_slots[i].type);
 }
