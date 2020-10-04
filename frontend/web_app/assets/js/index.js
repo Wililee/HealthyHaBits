@@ -13,3 +13,9 @@ function toggleForm() {
         }
     }
 }
+
+var UserName;
+$('#SubmitBtn').on('click', () => {
+    UserName = $('#nameTxt').val();
+    
+})
