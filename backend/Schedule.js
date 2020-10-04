@@ -69,3 +69,14 @@ class Schedule{
 
 //start end time with food gap
 //auto insert a food gap
+var ts = [];
+ts.push(new time_slot(2,20,'W'));
+ts.push(new time_slot(2,21,'W'));
+ts.push(new time_slot(2,22,'W'));
+ts.push(new time_slot(2,23,'W'));
+ts.push(new time_slot(2,24,'W'));
+ts.push(new time_slot(2,25,'W'));
+ts.push(new time_slot(2,26,'W'));
+ts.push(new time_slot(2,27,'W'));
+ts.push(new time_slot(2,28,'W'));
+ts.push(new time_slot(2,29,'W'));
