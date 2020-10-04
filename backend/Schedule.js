@@ -122,25 +122,25 @@ class Schedule{
 
 //start end time with food gap
 //auto insert a food gap
-var ts = [];
+// var ts = [];
 
-ts.push(new Time_Slot(2,21,'W'));
-ts.push(new Time_Slot(2,22,'W'));
-ts.push(new Time_Slot(2,23,'W'));
-ts.push(new Time_Slot(2,24,'W'));
-ts.push(new Time_Slot(2,25,'W'));
-ts.push(new Time_Slot(2,26,'W'));
-ts.push(new Time_Slot(2,27,'W'));
-ts.push(new Time_Slot(2,28,'W'));
-ts.push(new Time_Slot(2,29,'W'));
-ts.push(new Time_Slot(0,21,'W'));
-ts.push(new Time_Slot(1,21,'W'));
-ts.push(new Time_Slot(3,21,'W'));
-ts.push(new Time_Slot(4,21,'W'));
-ts.push(new Time_Slot(5,21,'W'));
-ts.push(new Time_Slot(6,21,'W'));
+// ts.push(new Time_Slot(2,21,'W'));
+// ts.push(new Time_Slot(2,22,'W'));
+// ts.push(new Time_Slot(2,23,'W'));
+// ts.push(new Time_Slot(2,24,'W'));
+// ts.push(new Time_Slot(2,25,'W'));
+// ts.push(new Time_Slot(2,26,'W'));
+// ts.push(new Time_Slot(2,27,'W'));
+// ts.push(new Time_Slot(2,28,'W'));
+// ts.push(new Time_Slot(2,29,'W'));
+// ts.push(new Time_Slot(0,21,'W'));
+// ts.push(new Time_Slot(1,21,'W'));
+// ts.push(new Time_Slot(3,21,'W'));
+// ts.push(new Time_Slot(4,21,'W'));
+// ts.push(new Time_Slot(5,21,'W'));
+// ts.push(new Time_Slot(6,21,'W'));
 
-var s = new Schedule(ts);
-for (var i = 0; i < 48; i ++){
-    console.log(i + " " + s.w.daysOfWeek[6].time_slots[i].type);
-}
+// var s = new Schedule(ts);
+// for (var i = 0; i < 48; i ++){
+//     console.log(i + " " + s.w.daysOfWeek[2].time_slots[i].type);
+// }
