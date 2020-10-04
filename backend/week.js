@@ -20,14 +20,23 @@ class Week {
         var sum = 0;
         for (i = 0; i < 7; i++) {
             var instance = this.daysOfWeek[i];
-            sum = sum + instance.numHoursActivity(A); // currently having a NaN error
+            sum = sum + instance.numHoursActivity(A);
         }
-        
         return sum;
     }
 
     getWeekAvgActivityTime(A) {
         return this.getWeekActivityTime(A)/7;
+    }
+
+    getWeeklyNutrient(N) {
+        var i;
+        var sum = 0;
+        for (i = 0; i < 7; i++) {
+            var instance = this.daysOfWeek[i];
+            sum = sum + instance.numHoursActivity(N); // replace this function with one that gets the nutritional info
+        }
+        return sum;
     }
 
     getDayBase(num) { // base is defined as the moment you wake up

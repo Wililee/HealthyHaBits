@@ -17,8 +17,8 @@ class Day {
         this.time_slots.forEach(s => {
             if (s.type === A)
                 h += 0.5;
-        return h;
         });
+        return h;
     }
 
     

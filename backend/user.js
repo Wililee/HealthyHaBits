@@ -7,13 +7,14 @@ class user { // Calculate data trends and generate insights
 
         this.targetAverageDailySleep = 8;
         
-        this.targetAverageDailyWater = 1; // daily water measured in gallons (as of now)
+        this.targetWeekSleepHours = 56;
+        this.targetWeekExerciseHours = 3.5;
+        this.targetWeekEatingHours = 1.5;
 
-        if (gender === "male") {
-            this.targetAverageDailyCalories = 120;
-        } else if (gender === "female") {
-            this.targetAverageDailyCalories = 90; // measured in micrograms
-        }  
+        this.targetAverageDailyFibre = 25; // measured in grams
+
+        // below values not yet used in any data calculations
+        this.targetAverageDailyWater = 1; // daily water measured in gallons
     }      
 
     newWeek() {
@@ -36,13 +37,26 @@ class user { // Calculate data trends and generate insights
 
     getAverageSleepInsight() {
         var delta = this.targetAverageDailySleep - this.week.getWeekAvgActivityTime('S'); // find the difference between avg. hours slept each night and the target
-        var guideline;
         if (delta > 0) { // if statements to determine how to communicate to user how they match up to to expected.
             return ("You slept an average of " + (this.week.getWeekAvgActivityTime('S')) + " which is " + abs(delta) + " hours UNDER the target amount.");
         } else if (delta < 0) {
             return ("You slept an average of " + (this.week.getWeekAvgActivityTime('S')) + " which is " + abs(delta) + " hours OVER the target amount.");
-        }  else {
-            return ("You slept the perfect amount this week!")
         }
+        return ("You slept the perfect amount this week!")
+    }
+
+    getActivityPercentage(A) { // Calculates if the scheduler has scheduled all of the necessary activities
+        var percentage = 100*Math.round(this.getWeekAvgActivityTime(A)/this.targetWeekSleepHours);
+        return percentage;
+    }
+
+    getNutritionalPercentage(N) {
+        var averageFibre = this.week.getWeeklyNutrient(N)/7;
+        var percentage = averageFibre/this.targetAverageDailyFibre;
+        return percentage;
+    }
+
+    getNutritionalInsight() {
+        return ("Text")
     }
 }
