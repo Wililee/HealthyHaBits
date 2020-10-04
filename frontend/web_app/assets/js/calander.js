@@ -87,9 +87,10 @@ function handleSignoutClick(event) {
 }
 
 function appendPre(message) {
-  var pre = document.getElementById("content");
-  var textContent = document.createTextNode(message + "\n");
-  pre.appendChild(textContent);
+  // var pre = document.getElementById("content");
+  // var textContent = document.createTextNode(message + "\n");
+  // pre.appendChild(textContent);
+  console.log("Google API Pre-message", message);
 }
 
 
