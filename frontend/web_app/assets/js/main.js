@@ -115,9 +115,6 @@ $("#btn1").on("click", () => {
     $("#pg1").text("new content");
 })
 
-function hidedrop() {
-    
-}
 function createGoogleCalader(){
 
 }
