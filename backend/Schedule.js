@@ -64,6 +64,12 @@ class Schedule{
             
         }
 
+        //sets up eating times
+        //first one is done automatically to prevent oob error
+        
+        for (var i = 1; i < 7; i ++){
+
+        }
 
     }
 }
@@ -81,6 +87,9 @@ ts.push(new Time_Slot(2,26,'W'));
 ts.push(new Time_Slot(2,27,'W'));
 ts.push(new Time_Slot(2,28,'W'));
 ts.push(new Time_Slot(2,29,'W'));
+
+ts.push(new Time_Slot(3,21,'W'));
+ts.push(new Time_Slot(4,21,'W'));
 
 var s = new Schedule(ts);
 for (var i = 0; i < 48; i ++){
