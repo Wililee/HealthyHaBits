@@ -13,9 +13,3 @@ function toggleForm() {
         }
     }
 }
-
-function nextPage(){
-    console.log("hegeg");
-    //sections[0].classList.remove("active");
-    //sections[1].classList.add("active");
-}
