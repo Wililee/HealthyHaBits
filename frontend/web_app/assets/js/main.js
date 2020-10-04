@@ -89,3 +89,5 @@ function asideToggle(){
     }
 }
 
+CreateEvent("Wooooo", "2020-10-14T09:00:00-07:00", "2020-10-14T18:00:00-07:00")
+//SetEventType("W", "2020-14-7T09:00:00-07:00")
