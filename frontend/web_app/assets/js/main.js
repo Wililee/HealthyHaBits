@@ -71,10 +71,10 @@ function addPrev(n){
 //     addPrev(sectionIndex)
 // })
 
-// document.querySelector(".contact-me").addEventListener("click",function(){
-//     showSection(this);
-//     updateNav(this)
-// })
+document.querySelector(".schedule-btn").addEventListener("click",function(){
+    showSection(this);
+    updateNav(this)
+})
 
 const navToggleBtn = document.querySelector(".nav-toggle"),
       aside = document.querySelector(".aside");
