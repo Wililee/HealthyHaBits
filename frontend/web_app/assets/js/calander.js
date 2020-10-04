@@ -31,7 +31,7 @@ function SetEventType(s,t){
 }
 
 function CreateEvent(n,s,e){
-    setTime = s;
+    startTime = s;
     endTime = e;
     EventName = n;
     eventflag = true;
