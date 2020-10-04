@@ -1,7 +1,4 @@
 //AutoGenerates a Schedule based on the pre determined inputs
-/*
-This will be the dynamic
-*/
 class Schedule{
     //user data is the list of timeslots in which the user is working
     constructor(userData){
@@ -37,13 +34,8 @@ class Schedule{
                     d.base = s.slot_num - 2;
                 }
             })
-
-
-        })
-        
-        
+        })  
     }
-
 }
 
 //start end time with food gap
