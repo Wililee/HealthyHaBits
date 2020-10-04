@@ -1,6 +1,7 @@
 const checkList = document.querySelectorAll(".date-wrapper");
     checkBoxes = document.querySelectorAll("input[type='checkbox']"),
-    totalCheckBoxes = checkBoxes.length;
+    totalCheckBoxes = checkBoxes.length,
+    sections = document.querySelectorAll(".sectionStart");
 
 function toggleForm() {
     for (let i = 0; i < totalCheckBoxes; i++){
