@@ -131,7 +131,7 @@ function changeEventType(st,nt){
 
       if (events.length > 0) {
         for (i = 0; i < events.length; i++) {
-          console.log(events[i].start.dateTime)
+          
           if (events[i].start.dateTime === st){
             //changes the event somehow
           }

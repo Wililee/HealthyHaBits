@@ -90,5 +90,6 @@ function asideToggle(){
 }
 
 
+
 //CreateEvent("W", "2020-10-15T09:00:00", "2020-10-15T18:00:00");
-SetEventType("2020-10-15T09:00:00-04:00","S")
+//SetEventType("2020-10-15T09:00:00-04:00","S")
