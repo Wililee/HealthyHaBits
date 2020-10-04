@@ -55,7 +55,7 @@ class Schedule{
                     this.daysOfWeek.time_slots[i].type = 'S';
                 //bleeds into day before
                 var remainder = RecommendedSleepNum - this.w.daysOfWeek.base;
-                for (var i = 23 - (RecommendedSleepNum - this.w.daysOfWeek.base); i <= 23; i ++)
+                for (var i = 47 - (RecommendedSleepNum - this.w.daysOfWeek.base); i <= 47; i ++)
                     this.w.daysOfWeek[index -1].time_slots[i].type = 'S';
             } else {
                 for (var i = this.w.daysOfWeek.base - RecommendedSleepNum; i <= this.w.daysOfWeek.base; i ++)
@@ -80,3 +80,8 @@ ts.push(new time_slot(2,26,'W'));
 ts.push(new time_slot(2,27,'W'));
 ts.push(new time_slot(2,28,'W'));
 ts.push(new time_slot(2,29,'W'));
+
+var s = new Schedule(st);
+for (var i = 0; i < 48; i ++){
+    console.log(s.week.daysOfWeek[2].time_slot[i].type);
+}
