@@ -61,6 +61,7 @@ function addPrev(n){
     allSection[n].classList.add("prev-section");
 }
 
+
 // document.querySelector(".email-btn").addEventListener("click",function(){
 //     const sectionIndex = this.getAttribute("data-section-index");
 //     showSection(this);
