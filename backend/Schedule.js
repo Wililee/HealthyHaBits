@@ -1,7 +1,4 @@
 //AutoGenerates a Schedule based on the pre determined inputs
-/*
-This will be the dynamic
-*/
 class Schedule{
     //user data is the list of timeslots in which the user is working
     constructor(userData){
@@ -11,12 +8,13 @@ class Schedule{
             var dow = slot.day_of_week;
             var sn = slot.slot_num;
             //updates all the timeslots in the given week
-            w.daysOfWeek[dow].time_slots[sn] = slot;
+            this.w.daysOfWeek[dow].time_slots[sn] = slot;
         });
 
         //auto adds the exercise,eating and sleepign slots
         //what to do if there is no base?
-        w.daysOfWeek.forEach(d =>{
+        var RecommendedSleepNum = 18;
+        this.w.daysOfWeek.forEach(d =>{
             var flag = false;
 
             //first trys to find a base
@@ -37,13 +35,36 @@ class Schedule{
                     d.base = s.slot_num - 2;
                 }
             })
+        })  
 
+        //Sets the sleeping time to be 9 hours before the base and bleeds into previous day (unless day = 0)
+        //does first one manunally to prevent oob error
+        if (this.w.daysOfWeek.base < RecommendedSleepNum){
+            for (var i = 0; i <= this.w.daysOfWeek.base; i ++)
+                this.daysOfWeek.time_slots[i].type = 'S';
+        } else {
+            for (var i = this.w.daysOfWeek.base - RecommendedSleepNum; i <= this.w.daysOfWeek.base; i ++)
+                this.daysOfWeek.time_slots[i].type = 'S';
+        }
 
-        })
+        //bleeds into previous day if its too early
         
-        
+        for (var index = 0; index < 7; index ++){
+            if (this.w.daysOfWeek.base < RecommendedSleepNum){
+                for (var i = 0; i <= this.w.daysOfWeek.base; i ++)
+                    this.daysOfWeek.time_slots[i].type = 'S';
+                //bleeds into day before
+                var remainder = RecommendedSleepNum - this.w.daysOfWeek.base;
+                for (var i = 23 - (RecommendedSleepNum - this.w.daysOfWeek.base); i <= 23; i ++)
+                    this.w.daysOfWeek[index -1].time_slots[i].type = 'S';
+            } else {
+                for (var i = this.w.daysOfWeek.base - RecommendedSleepNum; i <= this.w.daysOfWeek.base; i ++)
+                    this.daysOfWeek.time_slots[i].type = 'S';
+            }
+            
+        }
+
     }
-
 }
 
 //start end time with food gap
