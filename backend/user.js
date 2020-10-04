@@ -1,6 +1,12 @@
 class user { // Calculate data trends and generate insights
-// Can be an assesment of how good the generated schedule is to use
-// Still a work-in progress
+
+/* Statistics we've calculated:
+    - Percentage of needed weekly time sleeping/eating/exercising
+    - Overall Health: average % of sleeping/eating/exercising
+    - Average wake up time variation (sleep consistency)
+    - Average sleep per night comparison
+    - Percentage of needed nutrition per week
+*/
 
     constructor (name, age, gender, height, weight) {
         this.week = new Week();
@@ -11,7 +17,12 @@ class user { // Calculate data trends and generate insights
         this.targetWeekExerciseHours = 3.5;
         this.targetWeekEatingHours = 1.5;
 
-        this.targetAverageDailyFibre = 25; // measured in grams
+        // Target daily values of nutrients
+        this.targetAverageDailyCalories = 2000;
+        this.targetAverageDailyFibre = 25; // grams
+        this.targetAverageDailyProtein = 0.8*weight; //assuming weight is in kg
+        this.targetAverageDailyCarbs = 900; // arbitrary
+        this.targetAverageDailyVitamins = 40; // arbitrary
 
         // below values not yet used in any data calculations
         this.targetAverageDailyWater = 1; // daily water measured in gallons
@@ -21,6 +32,17 @@ class user { // Calculate data trends and generate insights
         this.week = new Week();
     }
 
+    // Percentage of needed weekly time sleeping/eating/exercising
+    getActivityPercentage(A) {
+        var percentage = 100*Math.round(this.getWeekAvgActivityTime(A)/this.targetWeekSleepHours);
+        return percentage;
+    }
+
+    getHealthPercentage() {
+        return (this.getActivityPercentage('S')+this.getActivityPercentage('M')+this.getActivityPercentage('E'))/3;
+    }
+
+    // Average wake up time variation (sleep consistency)
     getSleepConsistencyInsight() {
         var averageHourVariation;
         var sum;
@@ -35,6 +57,7 @@ class user { // Calculate data trends and generate insights
         return ("Your sleep start times vary by an average of " + averageHourVariation + " hours each night.");
     }
 
+    // Average sleep per night comparison
     getAverageSleepInsight() {
         var delta = this.targetAverageDailySleep - this.week.getWeekAvgActivityTime('S'); // find the difference between avg. hours slept each night and the target
         if (delta > 0) { // if statements to determine how to communicate to user how they match up to to expected.
@@ -45,18 +68,26 @@ class user { // Calculate data trends and generate insights
         return ("You slept the perfect amount this week!")
     }
 
-    getActivityPercentage(A) { // Calculates if the scheduler has scheduled all of the necessary activities
-        var percentage = 100*Math.round(this.getWeekAvgActivityTime(A)/this.targetWeekSleepHours);
+
+    // Percentage of needed nutrition per week
+    getNutritionalPercentage(category) { 
+        var averageNutrient = this.week.getWeeklyNutrient(category)/7; // Calcultaes if you have enough fibre/protein/carbs. etc. planned
+        var percentage = averageFibre/this.getNutrient(category);
         return percentage;
     }
 
-    getNutritionalPercentage(N) {
-        var averageFibre = this.week.getWeeklyNutrient(N)/7;
-        var percentage = averageFibre/this.targetAverageDailyFibre;
-        return percentage;
-    }
-
-    getNutritionalInsight() {
-        return ("Text")
+    getNutrient(category) { 
+        var categories = ["calories", "protein", 'fibre', 'carbohydrates', 'vitamins'];
+        if (category === "calories") { // I know this is kind of lazy programming sorry
+            return this.targetAverageDailyCalories;
+        } else if (category === 'fibre') {
+            return this.targetAverageDailyFibre;
+        } else if (category === "protein") {
+            return this.targetAverageDailyProtein;
+        } else if (category === 'carbohydrates') {
+            return this.targetAverageDailyCarbs;
+        } else if (category === 'vitamins') {
+            return this.targetAverageDailyVitamins;
+        }
     }
 }
