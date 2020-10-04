@@ -2,6 +2,7 @@ class user { // Calculate data trends and generate insights
 
 /* Statistics we've calculated:
     - Percentage of needed weekly time sleeping/eating/exercising
+    - Overall Health: average % of sleeping/eating/exercising
     - Average wake up time variation (sleep consistency)
     - Average sleep per night comparison
     - Percentage of needed nutrition per week
@@ -35,6 +36,10 @@ class user { // Calculate data trends and generate insights
     getActivityPercentage(A) {
         var percentage = 100*Math.round(this.getWeekAvgActivityTime(A)/this.targetWeekSleepHours);
         return percentage;
+    }
+
+    getHealthPercentage() {
+        return (this.getActivityPercentage('S')+this.getActivityPercentage('M')+this.getActivityPercentage('E'))/3;
     }
 
     // Average wake up time variation (sleep consistency)
