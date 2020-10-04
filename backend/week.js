@@ -29,12 +29,12 @@ class Week {
         return this.getWeekActivityTime(A)/7;
     }
 
-    getWeeklyNutrient(N) {
+    getWeeklyNutrient(category) {
         var i;
         var sum = 0;
         for (i = 0; i < 7; i++) {
             var instance = this.daysOfWeek[i];
-            sum = sum + instance.numHoursActivity(N); // replace this function with one that gets the nutritional info
+            sum = sum + instance.numNutrients(category); // replace this function with one that gets the nutritional info
         }
         return sum;
     }
