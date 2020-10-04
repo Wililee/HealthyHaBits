@@ -165,15 +165,15 @@
                             <form>
                                 <div class="inputSec">
                                     <label>Name</label><br>
-                                    <input type="text" placeholder="Name" value="Chris Hadfield">
+                                    <input id="nameTxt" type="text" placeholder="Name" value="Chris Hadfield">
                                 </div>
                                 <div class="inputSec">
                                     <label>Age</label><br>
-                                    <input type="number" min="0" placeholder="Age" value=61>
+                                    <input id="age" type="number" min="0" placeholder="Age" value=61>
                                 </div>
                                 <div class="inputSec">
                                     <label>Gender</label>
-                                    <select name="gender">
+                                    <select id="gender" name="gender">
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                         <option value="other">Other</option>
@@ -181,11 +181,11 @@
                                 </div>
                                 <div class="inputSec">
                                     <label>Height in meters</label><br>
-                                    <input type="number" placeholder="Height" value=1.8>
+                                    <input id="height" type="number" placeholder="Height" value=1.8>
                                 </div>
                                 <div class="inputSec">
                                     <label>Weight in kilograms</label><br>
-                                    <input type="number" placeholder="Weight" value=70>
+                                    <input id="weight" type="number" placeholder="Weight" value=70>
                                 </div>
                             </form>
                             </div>
@@ -198,69 +198,69 @@
                                         Monday: <input type="checkbox" class="chckDay" name="days" value="monday" onclick="toggleForm()"/><br />
                                         <div class="timeBox hidden">
                                             <label>Start time: </label>
-                                            <input type="time" name="start_mon">
+                                            <input id="monStart" type="time" name="start_mon">
                                             <label>End time: </label>
-                                            <input type="time" name="end_mon">
+                                            <input id="monEnd" type="time" name="end_mon">
                                         </div>
                                     </div>
                                     <div class="date-wrapper">
                                         Tuesday: <input type="checkbox" class="chckDay" name="days" value="tuesday" onclick="toggleForm()"/><br />
                                         <div class="timeBox hidden">
                                             <label>Start time: </label>
-                                            <input type="time" name="start_tues">
+                                            <input id="tuesStart" type="time" name="start_tues">
                                             <label>End time: </label>
-                                            <input type="time" name="end_tues">
+                                            <input id="tuesEnd" type="time" name="end_tues">
                                         </div>
                                     </div>
                                     <div class="date-wrapper">
                                         Wednesday: <input type="checkbox" class="chckDay" name="days" value="wednesday" onclick="toggleForm()"/><br />
                                         <div class="timeBox hidden">
                                             <label>Start time: </label>
-                                            <input type="time" name="start_wed">
+                                            <input id="wedStart" type="time" name="start_wed">
                                             <label>End time: </label>
-                                            <input type="time" name="end_wed">
+                                            <input id="wedEnd" type="time" name="end_wed">
                                         </div>
                                     </div>
                                     <div class="date-wrapper">
                                         Thursday: <input type="checkbox" class="chckDay" name="days" value="thursday" onclick="toggleForm()" /><br />
                                         <div class="timeBox hidden"> 
                                             <label>Start time: </label>
-                                            <input type="time" name="start_thurs">
+                                            <input id="thursStart" type="time" name="start_thurs">
                                             <label>End time: </label>
-                                            <input type="time" name="end_thurs">
+                                            <input id="thursEnd" type="time" name="end_thurs">
                                         </div> 
                                     </div>
                                     <div class="date-wrapper">
                                         Friday: <input type="checkbox" class="chckDay" name="days" value="friday" onclick="toggleForm()" /><br />
                                         <div class="timeBox hidden">
                                             <label>Start time: </label>
-                                            <input type="time" name="start_fri">
+                                            <input id="friStart" type="time" name="start_fri">
                                             <label>End time: </label>
-                                            <input type="time" name="end_fri">
+                                            <input id="friEnd" type="time" name="end_fri">
                                         </div>
                                     </div>
                                     <div class="date-wrapper">
                                         Saturday: <input type="checkbox" class="chckDay" name="days" value="saturday" onclick="toggleForm()" /><br />
                                         <div class="timeBox hidden">
                                             <label>Start time: </label>
-                                            <input type="time" name="start_sat">
+                                            <input id="satStart" type="time" name="start_sat">
                                             <label>End time: </label>
-                                            <input type="time" name="end_sat">
+                                            <input id="satEnd" type="time" name="end_sat">
                                         </div>
                                     </div>
                                     <div class="date-wrapper">
                                         Sunday: <input type="checkbox" class="chckDay" name="days" value="sunday" onclick="toggleForm()"/><br />
                                         <div class="timeBox hidden">
                                             <label>Start time: </label>
-                                            <input type="time" name="start_sun">
+                                            <input id="sunStart" type="time" name="start_sun">
                                             <label>End time: </label>
-                                            <input type="time" name="end_sun">
+                                            <input id="sunEnd" type="time" name="end_sun">
                                         </div>
                                     </div>
                                 </div>
                               </div>
                             </div>
-                            <button id = "SubmitBtn" type="submit" class="btn" value="Submit">Submit</button>
+                            <button id="SubmitBtn3" type="submit" class="btn" value="Submit">Submit</button>
                         </form>
                     </div>
                     </div>
