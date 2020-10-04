@@ -514,6 +514,11 @@ input,textarea,select{
     margin-bottom: 15px;
 }
 
+.logoCon{
+    float: right;
+    padding: 0;
+}
+
 /* About Page */
 .about .about-content {
     -ms-flex: 0 0 100%;
