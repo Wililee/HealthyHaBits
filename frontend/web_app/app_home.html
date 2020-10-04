@@ -37,9 +37,11 @@
                 </div>
                 
                 <!-- Nav -->
+                
                 <ul class="nav">
+                    <script src="../../backend/user.js">var cons = new user(Will, 20, male, 6, 100)</script>
                     <li><a href="#schedule" class="active"><i class="fa fa-calendar"></i> Schedule</a></li>
-                    <li><a href="#statistics" class=""><i class="fa fa-signal"></i> Statistics</a></li>
+                    <li><a href="#statistics" class="" onclick="cons.getSleepConsistencyInsight()"><i class="fa fa-signal"></i> Statistics</a></li>
                     <li><a href="#preferences" class=""><i class="fa fa-user"></i> Preferences</a></li>
                 </ul>
             </div>
@@ -239,6 +241,7 @@
                                     <div class="info-item padd-15">
                                         <p>Average Sleep Per Night: <span>TODO: Display value here</span></p>
                                     </div>
+                                    <p id="average_sleep">HELLO</p>
                                     <div class="info-item padd-15">
                                         <p>Average Sleep Consistantcy: <span>TODO: Display value here</span></p>
                                     </div>
