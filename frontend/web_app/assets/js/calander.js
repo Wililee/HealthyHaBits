@@ -23,9 +23,9 @@ var setTime;
 var setType;
 
 function SetEventType(s,t){
-    setflag = true;
     setTime = s;
     setType = t;
+    setflag = true;
     handleClientLoad();
 }
 
@@ -99,10 +99,11 @@ function addEventToCalander(EventName, startTime, EndTime) {
     summary: EventName,
     start: {
       dateTime: startTime,
+      timeZone : "US/Eastern"
     },
     end: {
       dateTime: EndTime,
-      
+      timeZone : "US/Eastern"
     },
   };
 
@@ -112,7 +113,7 @@ function addEventToCalander(EventName, startTime, EndTime) {
           "c_lh6s4ugatmp8q7eop3n94rhnsk@group.calendar.google.com",
         resource: event,
       }).then(function (response){
-        appendPre("added event: " + event.summary);
+       
       })
 }
 
@@ -125,12 +126,14 @@ function changeEventType(st,nt){
     })
     .then(function (response) {
       var events = response.result.items;
-      appendPre("Upcoming events:");
+      
 
       if (events.length > 0) {
         for (i = 0; i < events.length; i++) {
-          if (events[i].startTime === st)
-            events[i].summary = nt;
+          console.log(events[i].start.dateTime)
+          if (events[i].start.dateTime === st){
+            //changes the event somehow
+          }
         }
       } 
     });
