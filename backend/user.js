@@ -56,6 +56,7 @@ class user { // Calculate data trends and generate insights
         averageHourVariation = sum/14; // divide by 2*7 to convert from total half hours to average hours
         return ("Your sleep start times vary by an average of " + averageHourVariation + " hours each night.");
     }
+    //document.getElementById("slepAvg").innerHTML = getSleepConsistencyInsight();
 
     // Average sleep per night comparison
     getAverageSleepInsight() {
