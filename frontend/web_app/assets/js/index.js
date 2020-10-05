@@ -56,7 +56,11 @@ $('#SubmitBtn2').on('click', () => {
     satT2 = $('#satEndi').val();
     sunT1 = $('#sunStarti').val();
     sunT2 = $('#sunEndi').val();
+
+    console.log(tuesT1,tuesT2)
 })
+
+
 
 var UserNameN;
 var AgeN;
@@ -98,3 +102,4 @@ $('#SubmitBtn3').on('click', () => {
     sunT1N = $('#sunStart').val();
     sunT2N = $('#sunEnd').val();
 })
+
