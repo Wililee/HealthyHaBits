@@ -5,5 +5,7 @@ Healthy HaBits is a unique scheduling application that autonomously schedules pr
 To see a demo of application: https://drive.google.com/file/d/1FpDJ206a-eNJT_jId1PqILmaBw_dKNQF/view
 
 ![Image of App](https://github.com/Wililee/HealthyHaBits/blob/main/icon.png)
-Schedule Display
+<br>
+### Schedule Display
+<br>
 ![Schedule Display](https://github.com/Wililee/HealthyHaBits/blob/main/snapshot.png)
